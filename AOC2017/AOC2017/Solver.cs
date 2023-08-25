@@ -1,6 +1,6 @@
 public class Solver
 {
-    public int Solve(string captcha)
+    public int SolveNextDigit(string captcha)
     {
         var sum = 0;
         for (var index = 0; index < captcha.Length; index++) {
@@ -17,5 +17,10 @@ public class Solver
             }
         }
         return sum;
+    }
+
+    public int SolveOppositeDigit(string captcha)
+    {
+        throw new NotImplementedException();
     }
 }
