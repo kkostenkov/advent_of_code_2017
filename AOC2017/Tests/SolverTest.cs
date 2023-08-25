@@ -13,10 +13,12 @@ public class Tests
     }
     
     [Test]
-    [TestCase("1122", 6)]
+    [TestCase("1212", 6)]
     [TestCase("1221", 0)]
-    // [TestCase("1234", 0)]
-    // [TestCase("91212129", 9)]
+    [TestCase("123425", 4)]
+    [TestCase("123123", 12)]
+    [TestCase("12131415", 4)]
+    
     public void When_GivenCaptcha_Should_CalculateOppositeDigitSum(string captcha, int expectedResult)
     {
         var solver = new Solver();

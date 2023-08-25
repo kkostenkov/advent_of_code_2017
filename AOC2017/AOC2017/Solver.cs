@@ -25,13 +25,9 @@ public class Solver
         var step = captcha.Length / 2;
         for (var index = 0; index < captcha.Length; index++) {
             var character = captcha[index];
-            char nextCharacter;
-            if (index + step == captcha.Length - 1) {
-                nextCharacter = captcha[0];
-            }
-            else {
-                nextCharacter = captcha[captcha.Length - index];
-            }
+            //var nextCharacterIndex = GetIndexInRangeAfterSteps(captcha.Length, index, step);
+            var nextCharacterIndex = (index + step) % captcha.Length;
+            var nextCharacter = captcha[nextCharacterIndex];
             if (character == nextCharacter) {
                 sum += character - '0';
             }
@@ -45,7 +41,6 @@ public class Solver
         while (result > totalLength - 1) {
             result -= totalLength;
         }
-
         return result;
     }
 }
