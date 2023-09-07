@@ -17,9 +17,7 @@ public class Solver
         for (var index = 0; index < captcha.Length; index++) {
             var character = captcha[index];
             var value = int.Parse(character.ToString());
-            var nextIndex = index + indexOffset > maxIndex 
-                ? maxIndex - index + indexOffset - 1
-                : index + indexOffset;
+            var nextIndex = GetNextIndex(indexOffset, index, maxIndex);
 
             var nextChar = captcha[nextIndex];
             var nextValue = int.Parse(nextChar.ToString());
@@ -29,9 +27,17 @@ public class Solver
         }
         return sum;
     }
-    
+
+    private int GetNextIndex(int indexOffset, int index, int maxIndex)
+    {
+        var nextIndex = index + indexOffset > maxIndex
+            ? (index + indexOffset) - maxIndex - 1
+            : index + indexOffset;
+        return nextIndex;
+    }
+
     public void SolveAndPrint(string captcha)
     {
-        Console.WriteLine(SolveWithNext(captcha));
+        Console.WriteLine(SolveHalfWay(captcha));
     }
 }
