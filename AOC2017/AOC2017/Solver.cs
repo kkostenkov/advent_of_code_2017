@@ -5,14 +5,21 @@ public class Solver
         return Solve(captcha, 1);
     }
     
+    public int SolveHalfWay(string captcha)
+    {
+        return Solve(captcha, captcha.Length / 2);
+    }
+    
     private int Solve(string captcha, int indexOffset)
     {
         var sum = 0;
-
+        var maxIndex = captcha.Length - 1;
         for (var index = 0; index < captcha.Length; index++) {
             var character = captcha[index];
             var value = int.Parse(character.ToString());
-            var nextIndex = index + indexOffset == captcha.Length ? 0 : index + indexOffset;
+            var nextIndex = index + indexOffset > maxIndex 
+                ? maxIndex - index + indexOffset - 1
+                : index + indexOffset;
 
             var nextChar = captcha[nextIndex];
             var nextValue = int.Parse(nextChar.ToString());
@@ -23,15 +30,8 @@ public class Solver
         return sum;
     }
     
-    // private int GetIndex
-
     public void SolveAndPrint(string captcha)
     {
         Console.WriteLine(SolveWithNext(captcha));
-    }
-
-    public int SolveHalfWay(string captcha)
-    {
-        throw new NotImplementedException();
     }
 }

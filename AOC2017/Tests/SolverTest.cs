@@ -5,7 +5,7 @@ public class Tests
     [TestCase("1111", 4)]
     [TestCase("1234", 0)]
     [TestCase("91212129", 9)]
-    public void When_GivenCaptcha_Should_CalculateSum(string captcha, int expectedResult)
+    public void When_GivenCaptchaNextIndex_Should_CalculateSum(string captcha, int expectedResult)
     {
         var solver = new Solver();
         var result = solver.SolveWithNext(captcha);
@@ -18,7 +18,7 @@ public class Tests
     [TestCase("123425", 4)]
     [TestCase("123123", 12)]
     [TestCase("12131415", 4)]
-    public void Should_When_(string captcha, int expectedResult)
+    public void When_GivenCaptchaHlfWay_Shoud_CalculateSum(string captcha, int expectedResult)
     {
         var solver = new Solver();
         var result = solver.SolveHalfWay(captcha);
