@@ -11,6 +11,19 @@ public class Tests
         var result = solver.SolveWithNext(captcha);
         Assert.AreEqual(expectedResult, result);
     }
+
+    [Test]
+    [TestCase("1212", 6)]
+    [TestCase("1221", 0)]
+    [TestCase("123425", 4)]
+    [TestCase("123123", 12)]
+    [TestCase("12131415", 4)]
+    public void Should_When_(string captcha, int expectedResult)
+    {
+        var solver = new Solver();
+        var result = solver.SolveHalfWay(captcha);
+        Assert.AreEqual(expectedResult, result);
+    }
     
     [Test]
     public void Get_Result()

@@ -29,4 +29,9 @@ public class Solver
     {
         Console.WriteLine(SolveWithNext(captcha));
     }
+
+    public int SolveHalfWay(string captcha)
+    {
+        throw new NotImplementedException();
+    }
 }
