@@ -9,6 +9,15 @@ public class Tests
     {
         var solver = new Solver();
         var result = solver.Solve(captcha);
-        Assert.AreEqual(result, expectedResult);
+        Assert.AreEqual(expectedResult, result);
+    }
+    
+    [Test]
+    public void PrintResult()
+    {
+        var solver = new Solver();
+        var input = "1122";
+        var result = solver.Solve(input);
+        Console.WriteLine(result);
     }
 }
