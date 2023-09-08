@@ -12,7 +12,8 @@ public class ChecksumCalculator
 
     private int CalcLine(string input)
     {
-        var values = input.Split(" ");
+        var values = input.Split("\t");
+        
         var listOfValues = values.Select(s => int.Parse(s)).ToList();
         var maxValue = listOfValues.Max();
         var minValue = listOfValues.Min();
