@@ -11,5 +11,13 @@ public class CheckSumTests
         var result = checkSumCalculator.Calculate(input);
         return result;
     }
-}
 
+    [Test]
+    [TestCase("test.txt", ExpectedResult = "8")]
+    public string When_GivenPath_Should_ReadContents(string path)
+    {
+        var fileReader = new FileReader();
+        var result = fileReader.Read(path);
+        return result;
+    }
+}
